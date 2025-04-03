@@ -1,3 +1,34 @@
+"""
+Example coding_standards.json:
+{
+  "Java": {
+    "style_guide": "Custom Company Style",
+    "naming_conventions": {
+      "classes": "UpperCamelCase",
+      "methods": "lowerCamelCase",
+      "constants": "UPPER_SNAKE_CASE",
+      "variables": "lowerCamelCase",
+      "packages": "com.company.department.feature"
+    },
+    "formatting": {
+      "indent": 4,
+      "line_length": 120,
+      "braces": "same line",
+      "line_wrapping": "4-space continuation indent"
+    },
+    "practices": {
+      "logging": "use SLF4J",
+      "injection": "use Spring dependency injection",
+      "error_handling": "use ResponseEntity for REST errors"
+    },
+    "frameworks": {
+      "preferred": ["Spring Boot", "Hibernate", "JUnit 5"]
+    }
+  }
+}
+"""
+
+
 def setup_pr_reviewer():
     """Set up and configure the PR reviewer agent"""
     # Load configuration
