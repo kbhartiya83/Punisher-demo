@@ -1,3 +1,27 @@
+def setup_pr_reviewer():
+    """Set up and configure the PR reviewer agent"""
+    # Load configuration
+    load_dotenv()
+    
+    org_name = os.getenv("GITHUB_ORG_NAME")
+    llm_api_url = os.getenv("LLM_API_URL")
+    llm_api_key = os.getenv("LLM_API_KEY")
+    
+    # Create the agent
+    agent = PRReviewerAgent(
+        org_name=org_name,
+        llm_api_url=llm_api_url,
+        llm_api_key=llm_api_key,
+        auth_method="token"  # or "app" for GitHub App integration
+    )
+    
+    # Load custom standards if needed
+    if os.path.exists("coding_standards.json"):
+        agent.load_custom_standards("coding_standards.json")
+    
+    return agent
+
+
 def main():
     """Main entry point for the PR Reviewer application"""
     print("Starting GitHub PR Reviewer Agent...")
